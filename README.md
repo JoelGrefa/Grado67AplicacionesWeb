@@ -28,6 +28,9 @@ El sitio se abrirá automáticamente en el navegador.
 
 📂 Estructura
 /css   → estilos
+
 /js    → scripts
+
 /data  → archivos JSON
+
 /pages → subpáginas (detalle, renta, contacto)
