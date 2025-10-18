@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Renta de Películas</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+      <div class="container-fluid">
+        <a class="navbar-brand" href="../index.html">CinePlus</a>
+      </div>
+    </nav>
+
+    <header class="bg-primary text-white text-center p-4">
+      <h1>Formulario de Renta de Películas</h1>
+      <p class="lead">Selecciona las películas que deseas alquilar y elige la forma de pago</p>
+    </header>
+
+    <main class="container py-4">
+      <!-- Formulario de renta -->
+      <form id="form-renta">
+        <div class="mb-3">
+          <label for="peliculas" class="form-label">Selecciona las películas</label>
+          <select multiple class="form-control" id="peliculas" required>
+            <!-- Opciones de películas se llenarán con JS -->
+          </select>
+        </div>
+
+        <div class="mb-3">
+          <label for="dias" class="form-label">Número de días de renta</label>
+          <input type="number" class="form-control" id="dias" required min="1">
+        </div>
+
+        <div class="mb-3">
+          <label for="pago" class="form-label">Forma de pago</label>
+          <select class="form-control" id="pago" required>
+            <option value="efectivo">Efectivo</option>
+            <option value="tarjeta">Tarjeta</option>
+            <option value="transferencia">Transferencia Bancaria</option>
+          </select>
+        </div>
+
+        <!-- Agregar los botones de Confirmar Renta y Volver al inicio -->
+        <div class="d-flex justify-content-between">
+          <button type="submit" class="btn btn-primary">Confirmar Renta</button>
+          <a href="../index.html" class="btn btn-secondary">Volver al inicio</a> <!-- Botón para volver al inicio -->
+        </div>
+      </form>
+    </main>
+
+    <!-- Modal de confirmación -->
+    <div class="modal fade" id="modalConfirmacion" tabindex="-1" aria-labelledby="modalConfirmacionLabel" aria-hidden="true">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="modalConfirmacionLabel">Confirmación de Renta</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Cerrar"></button>
+          </div>
+          <div class="modal-body">
+            <p><strong>Cliente:</strong> <span id="modal-cliente"></span></p>
+            <p><strong>Películas:</strong> <span id="modal-peliculas"></span></p>
+            <p><strong>Días de renta:</strong> <span id="modal-dias"></span></p>
+            <p><strong>Total a pagar:</strong> $<span id="modal-total"></span></p>
+            <p><strong>Forma de pago:</strong> <span id="modal-pago"></span></p>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+            <button type="button" class="btn btn-primary" data-bs-dismiss="modal">Aceptar</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+      $(document).ready(function () {
+        // Cargar las películas desde el archivo JSON y agregarlas al formulario
+        $.ajax({
+          url: "../data/peliculas.json",
+          method: "GET",
+          dataType: "json",
+          success: function (peliculas) {
+            let options = "";
+            peliculas.forEach(function (peli) {
+              options += `<option value="${peli.id}" data-precio-estreno="${peli.precios.estreno}" data-precio-normal="${peli.precios.normal}">${peli.titulo}</option>`;
+            });
+            $("#peliculas").html(options); // Llenar el select con las opciones de películas
+          }
+        });
+
+        // Manejar el envío del formulario
+        $("#form-renta").on("submit", function (e) {
+          e.preventDefault();
+
+          const cliente = prompt("Por favor, ingresa tu nombre:");
+          const dias = $("#dias").val();
+          const pago = $("#pago").val();
+          const peliculasSeleccionadas = $("#peliculas").val();
+          let total = 0;
+          let peliculasNombres = [];
+
+          // Calcular el total
+          peliculasSeleccionadas.forEach(function (id) {
+            const peli = $("#peliculas option[value='" + id + "']");
+            const precioEstreno = parseFloat(peli.attr("data-precio-estreno"));
+            const precioNormal = parseFloat(peli.attr("data-precio-normal"));
+            const fechaEstreno = new Date(peli.data("estreno"));
+            const precio = new Date() < fechaEstreno ? precioEstreno : precioNormal;
+            total += precio * dias; // Precio por días de renta
+            peliculasNombres.push(peli.text());
+          });
+
+          // Mostrar la información en el modal
+          $("#modal-cliente").text(cliente);
+          $("#modal-peliculas").text(peliculasNombres.join(", "));
+          $("#modal-dias").text(dias);
+          $("#modal-total").text(total.toFixed(2));
+          $("#modal-pago").text(pago);
+
+          // Mostrar el modal con los detalles de la compra
+          var modal = new bootstrap.Modal(document.getElementById('modalConfirmacion'));
+          modal.show();
+
+          // Redirigir al hacer clic en "Aceptar" en el modal
+          $("#modalConfirmacion .btn-primary").on("click", function () {
+            window.location.href = "../index.html"; // Redirige a la página principal
+          });
+        });
+      });
+    </script>
+  </body>
+</html>

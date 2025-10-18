@@ -3,24 +3,104 @@
     "id": 1,
     "titulo": "Dune",
     "imagen": "dune.jpg",
-    "genero": "Aventura",
+    "generos": ["Aventura"],
     "sinopsis": "Un joven emprende una misión para salvar su mundo.",
-    "trailer": "https://www.youtube.com/embed/mSY_NbSmaUI"
+    "trailer": "https://www.youtube.com/embed/mSY_NbSmaUI",
+    "estreno": "2024-10-15T00:00:00Z",
+    "precios": {
+      "estreno": 10.00,
+      "normal": 8.00
+    }
   },
   {
     "id": 2,
     "titulo": "50 primeras citas",
     "imagen": "50-primeras-citas.jpg",
-    "genero": "Comedia",
+    "generos": ["Comedia"],
     "sinopsis": "Henry se enamora de Lucy, una mujer con pérdida de memoria a corto plazo.",
-    "trailer": "https://www.youtube.com/embed/17KJk3ErIx0"
+    "trailer": "https://www.youtube.com/embed/17KJk3ErIx0",
+    "estreno": "2024-09-25T00:00:00Z",
+    "precios": {
+      "estreno": 12.00,
+      "normal": 9.00
+    }
   },
   {
     "id": 3,
     "titulo": "Batman Caballero de la Noche",
     "imagen": "batman-caballero-de-la-noche.webp",
-    "genero": "Acción",
+    "generos": ["Acción"],
     "sinopsis": "La película comienza con el violento robo de uno de los bancos de la mafia por una banda de payasos.",
-    "trailer": "https://www.youtube.com/embed/dzQtWkpc2-c"
+    "trailer": "https://www.youtube.com/embed/dzQtWkpc2-c",
+    "estreno": "2024-09-18T00:00:00Z",
+    "precios": {
+      "estreno": 14.00,
+      "normal": 10.00
+    }
+  },
+  {
+    "id": 4,
+    "titulo": "Aquaman y el Reino Perdido",
+    "imagen": "aquaman.jpg",
+    "generos": ["Acción", "Aventura"],
+    "sinopsis": "Arthur Curry, el hijo de una reina atlante, debe tomar su lugar como el gobernante del reino submarino de Atlantis.",
+    "trailer": "https://www.youtube.com/watch?v=M8W_y0mmJEc",
+    "estreno": "2024-12-01T00:00:00Z",
+    "precios": {
+      "estreno": 15.00,
+      "normal": 11.00
+    }
+  },
+  {
+    "id": 5,
+    "titulo": "Rescate Implacable",
+    "imagen": "rescate-implacable.jpg",
+    "generos": ["Acción", "Thriller"],
+    "sinopsis": "Un exsoldado en busca de venganza se enfrenta a una peligrosa red de criminales para rescatar a su familia.",
+    "trailer": "https://www.youtube.com/watch?v=aag7iZv_O30&t=1s",
+    "estreno": "2024-11-20T00:00:00Z",
+    "precios": {
+      "estreno": 13.00,
+      "normal": 10.00
+    }
+  },
+  {
+    "id": 6,
+    "titulo": "SPIDER-MAN: BRAND NEW DAY",
+    "imagen": "spider-man.jpg",
+    "generos": ["Acción", "Ciencia ficción"],
+    "sinopsis": "Peter Parker, un joven con habilidades especiales, lucha contra villanos para proteger la ciudad.",
+    "trailer": "https://www.youtube.com/watch?v=08BaTtiEuWA",
+    "estreno": "2025-03-15T00:00:00Z",
+    "precios": {
+      "estreno": 18.00,
+      "normal": 14.00
+    }
+  },
+  {
+    "id": 7,
+    "titulo": "Una película de Minecraft",
+    "imagen": "minecraft.jpg",
+    "generos": ["Aventura", "Fantasía"],
+    "sinopsis": "Un grupo de jugadores es transportado al mundo de Minecraft, donde deben enfrentar desafíos épicos.",
+    "trailer": "https://youtu.be/NOAmJa-dhCA",
+    "estreno": "2025-05-01T00:00:00Z",
+    "precios": {
+      "estreno": 16.00,
+      "normal": 12.00
+    }
+  },
+  {
+    "id": 8,
+    "titulo": "AVATAR 3: Fuego y Ceniza",
+    "imagen": "avatar-3.jpg",
+    "generos": ["Ciencia ficción", "Aventura"],
+    "sinopsis": "La continuación de la épica saga en Pandora, donde Jake y Neytiri luchan para salvar su hogar.",
+    "trailer": "https://www.youtube.com/watch?v=bf38f_JINyw",
+    "estreno": "2025-12-20T00:00:00Z",
+    "precios": {
+      "estreno": 20.00,
+      "normal": 16.00
+    }
   }
 ]

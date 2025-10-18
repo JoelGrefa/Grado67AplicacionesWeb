@@ -1,0 +1,40 @@
+[
+  {
+    "peliculaId": 1,
+    "reseñas": [
+      {
+        "comentario": "Una película increíble, la ambientación es espectacular.",
+        "calificacion": 5
+      },
+      {
+        "comentario": "Me gustó, pero podría haber sido un poco más dinámica.",
+        "calificacion": 3
+      },
+      {
+        "comentario": "Una obra maestra, todo fue perfecto.",
+        "calificacion": 5
+      }
+    ]
+  },
+  {
+    "peliculaId": 2,
+    "reseñas": [
+      {
+        "comentario": "Muy divertida y emotiva, aunque algo predecible.",
+        "calificacion": 4
+      },
+      {
+        "comentario": "Una comedia ligera que vale la pena ver.",
+        "calificacion": 4
+      },
+      {
+        "comentario": "Buen trabajo, pero no me sorprendió mucho.",
+        "calificacion": 3
+      },
+      {
+        "comentario": "Me encantó, es una de mis favoritas.",
+        "calificacion": 5
+      }
+    ]
+  }
+]

@@ -1,9 +1,63 @@
 body {
     background-color: #f8f9fa;
-  }
-  
-  .card img {
+}
+
+/* Imagen de la tarjeta */
+.card img {
     height: 250px;
     object-fit: cover;
-  }
-  
+    border-radius: 10px; /* Bordes redondeados para las imágenes */
+    transition: transform 0.3s ease-in-out; /* Efecto suave para el zoom */
+}
+
+/* Efecto de flotación para las tarjetas */
+.card {
+    transition: transform 0.3s ease-in-out, box-shadow 0.3s ease; /* Transiciones suaves */
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Sombra sutil */
+}
+
+/* Efecto de flotación y zoom al pasar el mouse */
+.card:hover {
+    transform: translateY(-5px) scale(1.05); /* Eleva la tarjeta y la hace un poco más grande */
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2); /* Aumenta la sombra */
+}
+
+/* Títulos de las películas */
+.card-title {
+    transition: color 0.3s ease;
+}
+
+/* Cambio de color del título al pasar el mouse */
+.card:hover .card-title {
+    color: #007bff; /* Cambia el color del texto del título */
+}
+
+/* Efecto de zoom en la imagen de la tarjeta */
+.card:hover img {
+    transform: scale(1.1); /* Aumenta el tamaño de la imagen al pasar el mouse */
+}
+
+/* Botones dentro de la tarjeta */
+.card-body .btn {
+    margin-top: 10px;
+    transition: background-color 0.3s, transform 0.2s ease; /* Transiciones suaves para los botones */
+    border-radius: 5px; /* Bordes redondeados para los botones */
+}
+
+/* Efecto en los botones al pasar el mouse */
+.card-body .btn:hover {
+    background-color: #0056b3; /* Color de fondo al pasar el mouse por encima */
+    transform: scale(1.1); /* Efecto de aumento de tamaño en el botón */
+}
+
+/* Sombra más visible en los botones */
+.card-body .btn {
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+/* Estilo general para la imagen y el contenido de la tarjeta */
+.card h5, .card p {
+    color: #333;
+    transition: color 0.3s ease;
+}
