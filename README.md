@@ -28,10 +28,12 @@ El sitio se abrirá automáticamente en el navegador.
 
 # 📂 Estructura
 
+/index.html
+
 /css   → estilos
 
 /js    → scripts
 
-/data  → archivos JSON
+/data  → archivos JSON (peliculas, reseñas)
 
 /pages → subpáginas (detalle, renta, contacto)
